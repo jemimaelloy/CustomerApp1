@@ -1,0 +1,94 @@
+<div class="container">
+        <h2>user Registration Form</h2>
+        <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+            <div class="form-group">
+                <label>Name:</label><input type="text" #nameRef="ngModel" required minilength="9"
+                 max length="29"
+                    pattern="[a-zA-Z]+" class="form-control" name="name" ngModel>
+    
+    
+                <div *ngIf="nameRef.errors && (nameRef.dirty||nameRef.touched)" class="alert alert-danger">
+                    <div [hidden]="!nameRef.errors.required">please enter your name</div>
+                    <div [hidden]="!nameRef.errors.minilength">please enter atleast 5 characters</div>
+                    <div [hidden]="!nameRef.errors.pattern">please enter valid data</div>
+    
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Contact:</label><input type="text" #contactRef="ngModel" required minilength="10" max length="15"
+                    pattern="[0-9]+" class="form-control" name="contact" ngModel>
+    
+                <div *ngIf="contactRef.errors && (contactRef.dirty||contactRef.touched)" class="alert alert-danger">
+                    <div [hidden]="!contactRef.errors.required">please enter your contact</div>
+                    <div [hidden]="!contactRef.errors.minilength">please enter 10 digits mobile number</div>
+                    <div [hidden]="!contactRef.errors.pattern">please enter valid data</div>
+                </div>
+            </div>
+            <div ngModelGroup="Address">
+                <div class="form-group">
+                    <label>Country:</label><select class="form-group">
+                        <option value="" disabled>choose your country</option>
+                        <option>INDIA</option>
+                        <option>AMERICA</option>
+                        <option>PARIS</option>
+                        <option>LONDON</option>
+                        <option>MELBOURNE</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>street:</label><input type="text" #streetRef="ngModel" required minilength="30" max length="100"
+                        pattern="[0-9][a-z]+" class="form-control" name="street" ngModel>
+    
+                    <div *ngIf="streetRef.errors && (streetRef.dirty||streetRef.touched)" class="alert alert-danger">
+                        <div [hidden]="!streetRef.errors.required">please enter your contact</div>
+                        <div [hidden]="!streettRef.errors.minilength">please enter atleast 30 characters</div>
+                        <div [hidden]="!streettRef.errors.pattern">please enter valid data</div>
+                    </div>
+                </div>
+            
+    
+            <div class="form-group">
+                <label>City:</label><input type="text" #cityRef="ngModel" required minilength="5" max length="9"
+                    pattern="[a-z]+" class="form-control" name="city" ngModel>
+    
+    
+                <div *ngIf="cityRef.errors && (cityRef.dirty||cityRef.touched)" class="alert alert-danger">
+                    <div [hidden]="!cityRef.errors.required">please enter your name</div>
+                    <div [hidden]="!cityRef.errors.minilength">please enter atleast 5 characters</div>
+                    <div [hidden]="!cityRef.errors.pattern">please enter valid data</div>
+    
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>Postal code:</label><input type="text" #postalcodeRef="ngModel" required minilength="5" max
+                    length="9" pattern="[0-9]+" class="form-control" name="postalcode" ngModel>
+                <div *ngIf="postalcodeRef.errors && (postalcodeRef.dirty||postalcodeRef.touched)"
+                    class="alert alert-danger">
+                    <div [hidden]="!postalcodeRef.errors.required">please enter your name</div>
+                    <div [hidden]="!postalcodeRef.errors.minilength">please enter atleast 5 characters</div>
+                    <div [hidden]="!postalcodeRef.errors.pattern">please enter valid data</div>
+    
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <br>
+                    <input id="male" type="radio" class="custom-control-input" value="male" name="gender" ngModel>
+                    <label class="custom-control-label" for="male">Male</label>
+                 </div>
+              
+                 <div class="form-group">
+                    <input id="female" type="radio" class="custom-control-input" value="female" name="gender" ngModel>
+                    <label class="custom-control-label" for="female">Female</label>
+                 </div>
+                 <div class="form-group">
+                     <label> <input type="checkbox"  ngmodel name=jemmi>Mobiles</label>
+                     <label> <input type="checkbox"  ngmodel name=jemmi>Earphones</label>
+                     <label> <input type="checkbox"  ngmodel name=jemmi>Charges</label>
+                 </div>
+            </div>
+            <button [disabled]="!userForm.form.valid" type="submit" class="btn-sucess">submit</button>
+        </form>
+    </div>

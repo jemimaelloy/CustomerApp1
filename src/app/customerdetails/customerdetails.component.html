@@ -1,0 +1,13 @@
+<h2 style="color: cornflowerblue">Customer-Details</h2><hr>
+<table align="center" border="2">
+    <tr>
+        <td><h4>customer</h4></td>
+        <td><h4>title</h4></td>
+        <td><h4>body</h4></td>
+    </tr>
+    <tr *ngFor="let customer of customers">
+        <td>{{customer.customer}}</td>
+        <td>{{customer.customerName}}</td>
+        <td>{{customer.salary}}</td>
+    </tr>
+</table>
